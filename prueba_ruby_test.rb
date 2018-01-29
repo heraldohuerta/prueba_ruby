@@ -29,7 +29,7 @@ def primedio(alumnos)
 puts "****************************************************************************************"
 puts "****************PROMEDIO ALUMNOS********************************************************"
 puts "****************************************************************************************"
-alumnos.each {|key,notas| puts "El promedio de notas de #{key} #{notas} es:#{notas.sum / notas.count }"}
+alumnos.each {|key,notas| puts "El promedio de notas de #{key} #{notas} es:#{notas.sum.to_f / notas.count }"}
 end
 
 def inasistencia(alumnos)
@@ -44,9 +44,9 @@ def aprobados(alumnos,nota)
   puts "La nota de aprobación es: #{nota}"
   puts "Alumnos aprobados son:"
   alumnos.each do |key,notas|
-    promedios = notas.sum / notas.count
+    promedios = notas.sum / notas.count.to_f
     if (promedios >= nota)
-      puts "Alumno   #{key}, con notas  #{notas} aprobo con promedio: #{notas.sum / notas.count  }"
+      puts "Alumno   #{key}, con notas  #{notas} aprobo con promedio: #{notas.sum.to_f / notas.count  }"
     end
   end
 end
@@ -78,7 +78,7 @@ while (seleccion !=4)
         puts "****************************************************************************************"
         puts "\n\n"
         puts "Ingrese nota de aprobacion:"
-        nota = gets.chomp.to_i
+        nota = gets.chomp.to_f
 
         nota = 5 if nota == 0
 
